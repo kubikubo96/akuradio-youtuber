@@ -1,12 +1,5 @@
 //background chạy nền
 
-var webAnother = [
-  'https://vnexpress.net/',
-  'https://laodong.vn/',
-  'https://baomoi.com/',
-  'https://vietnamnet.vn/'
-]
-
 //account
 var accounts = [
   { sEmail: "kubikubo01@gmail.com", sPassWord: "Nghean01!", sEmailRecovery: "tien.nguyentat.1@gmail.com" },
@@ -21,7 +14,6 @@ var videos = [
 var videosNum = videos.length - 1;
 
 var dataDefine = {
-  'website': webAnother,
   'videos': videos,
   'accounts': accounts,
   'videosNum': videosNum,
