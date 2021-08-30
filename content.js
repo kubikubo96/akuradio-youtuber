@@ -4,25 +4,22 @@ var sYB = 'www.youtube.com';
 var sAc = 'accounts.google.com';
 var sLinkLogin = 'https://accounts.google.com/signin/v2/identifier?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Dvi%26next%3D%252F&amp%3Bhl=vi&amp%3Bpassive=false&amp%3Bservice=youtube&amp%3Builel=0&flowName=GlifWebSignIn&flowEntry=AddSession';
 
-// Do something clever here once data has been removed.
 chrome.storage.sync.get("dataDefine", ({ dataDefine }) => {
 
-  //chờ page load xong
+  //Chờ page load xong
   jQuery(document).ready(function ($) {
 
     setTimeout(function () {
-      //lấy data từ background
+      //Lấy data từ background
       var accountUse = dataDefine.accounts[Math.floor(Math.random() * dataDefine.accounts.length)];
       var videoUse = dataDefine.videos[Math.floor(Math.random() * dataDefine.videos.length)];
       console.log(dataDefine);
-      console.log(videoUse);
-      console.log(accountUse);
 
       jQuery(document).ready(function ($) {
-        //đăng nhập google
+        //Đăng nhập google
         auToLoginAccount(accountUse.sEmail, accountUse.sPassWord, accountUse.sEmailRecovery);
 
-        //tìm video theo name
+        //Tìm video theo name
         jQuery(document).ready(function ($) {
           setTimeout(function () {
             var checkSearch = getUrlParameter('search_query');
@@ -33,7 +30,7 @@ chrome.storage.sync.get("dataDefine", ({ dataDefine }) => {
           }, 3000);
         });
 
-        //tìm video theo id
+        //Tìm video theo id
         jQuery(document).ready(function ($) {
           setTimeout(function () {
             var checkSearch = getUrlParameter('search_query');
@@ -75,7 +72,6 @@ function autoSearchData(sTtitle) {
 
   }, 65000);
 }
-
 
 //find videos
 function autoFindVideo(sVideoID = '') {
@@ -257,6 +253,7 @@ function auToLoginAccount(sEmail = '', sPassWord = '', sEmailRecovery = '') {
   }, randomIntFromRange(3000, 4500));
 }
 
+//Login Account Change
 function auToLoginAccountChange(sEmail = '', sPassWord = '', sEmailRecovery = '', checkLinkCurrent = '') {
   var nTimeChangeAccount = 0;
 
@@ -294,7 +291,7 @@ function auToLoginAccountChange(sEmail = '', sPassWord = '', sEmailRecovery = ''
   }, 1000);
 }
 
-//view videos
+//View videos
 function viewXem(nDuration = ''){
   setTimeout(function(){
     chrome.storage.sync.get('config', function (result) {
@@ -516,8 +513,7 @@ function viewXem(nDuration = ''){
 }, 2500);
 }
 
-
-//auto subscrible
+//Auto subscrible
 function autoSubscribe(timeSub = 70) {
   var timeSub = parseInt(timeSub) + randomIntFromRange(0,60);
   var attr = $("#meta-contents #subscribe-button #notification-preference-button").attr('hidden');
@@ -592,7 +588,7 @@ function autoComment(sComment){
   }
 }
 
-//auto Like
+//Auto Like
 function autoLike() {
   if($("#menu-container #top-level-buttons-computed ytd-toggle-button-renderer").length){
       setTimeout(function(){
@@ -610,8 +606,7 @@ function autoLike() {
   }
 }
 
-
-//auto ScrollBrower
+//Auto ScrollBrower
 function autoScrollBrowser() {
   var nTimeScrollBottom = randomIntFromRange(7500,9000);
   var nTimeScrollTop    = randomIntFromRange(7500,9000);
